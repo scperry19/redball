@@ -1,0 +1,83 @@
+<!DoctypeHTML>
+<HTML>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jquery_1.6.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.14.js"></script>
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.core.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.draggable.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.resizable.js"></script>
+
+<script>
+$(function(){
+    $('.ddd').click(function(){
+        ff=this;
+        $('.ddd').removeClass('selectedd')
+        $(ff).addClass('selectedd')
+    }); 
+
+    });
+</script>
+
+
+<style>
+.ddd:hover{
+            transform: scale(1.2);
+-ms-transform: scale(1.2); /* IE 9 */
+-webkit-transform: scale(1.2); /* Safari and Chrome */
+-o-transform: scale(1.2); /* Opera */
+-moz-transform: scale(1.2); /* Firefox */
+        }
+
+        .selectedd{
+            transform: scale(1.2);
+-ms-transform: scale(1.2); /* IE 9 */
+-webkit-transform: scale(1.2); /* Safari and Chrome */
+-o-transform: scale(1.2); /* Opera */
+-moz-transform: scale(1.2); /* Firefox */
+border:2px inset silver;
+        }
+</style>
+
+
+<script src="Nonsense.js"></script>
+        <script type="text/javascript">
+            var ns = new Nonsense(), nss = new Nonsense('foo', 'bar', 'baz', 'algebraic!');
+            console.log(ns.words());
+            console.log(nss.words());
+        </script>
+        <style type="text/css">
+        </style>
+
+</head>
+
+
+
+<body>
+
+
+<div style="background: #FFF;padding: 1px;" class="jjj">
+<img src="blue.jpg" class="ddd"/>
+<img src="ball2.jpg" class="ddd"/>
+<img src="ball3.jpg" class="ddd"/>
+<img src="ball4.jpg" class="ddd"/>
+<img src="ball5.jpg" class="ddd"/>
+</div>
+
+
+<div id="butts">
+<button onclick="hello.sayhello();">say it</button>
+<button onclick="hello.addball();">add images</button>
+<button id="PageRefresh">Refresh</button>
+ 
+<script type="text/javascript">
+ 
+  $('#PageRefresh').click(function() {
+ 
+            location.reload();
+ 
+  });
+  </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Redball Zero Two </title>
+				<script>
+		
+				
+				function sayhello()
+				{
+					alert("Meow");
+				}
+				function moveleft()
+				{
+					redball.left=redball.left-30;
+				}
+				function moveright()
+				{
+					redball.left=redball.left+30;
+				}
+				function moveup()
+				{
+					redball.top=redball.top-30;
+				}
+				function movedown()
+				{
+					redball.top=redball.top+30;
+				}
+				function movediagdownright()
+				{
+					redball.top=redball.top+30;
+						redball.left=redball.left+30;
+				}
+				function movediagdownleft()
+				{
+					redball.top=redball.top+30;
+						redball.left=redball.left-30;
+				}
+				function movediagupleft()
+				{
+					redball.top=redball.top-30;
+						redball.left=redball.left-30;
+				}
+				function movediagupright()
+				{
+					redball.top=redball.top-30;
+						redball.left=redball.left+30;
+				}
+				function square()
+				{
+					redball.top=redball.top-50;
+					redball.top=redball.top-50;
+					redball.top=redball.top-50;
+					redball.top=redball.top-50;
+					redball.top=redball.top-50;
+					redball.left=redball.left+50;
+					redball.left=redball.left+50;
+					redball.left=redball.left+50;
+					redball.left=redball.left+50;
+					redball.left=redball.left+50;
+					redball.top=redball.top+50;
+					redball.top=redball.top+50;
+					redball.top=redball.top+50;
+					redball.top=redball.top+50;
+					redball.top=redball.top+50;
+					redball.left=redball.left-50;
+					redball.left=redball.left-50;
+					redball.left=redball.left-50;
+					redball.left=redball.left-50;
+					redball.left=redball.left-50;
+					
+				}
+				
+				function triangle()
+				{
+				for (i = 0; i < 8; i++) { 
+				movediagupright(); }
+				for (i = 0; i < 8; i++) {
+				movediagdownright(); }
+				for (i = 0; i < 8; i++) {
+				moveleft();
+}}		
+
+				
+				
+				function bounce()
+				{
+				
+					redball.top=redball.top+50;
+					redball.left=redball.left-50;
+					redball.top=redball.top+50;
+					redball.left=redball.left-50;
+					redball.top=redball.top+50;
+					redball.left=redball.left-50;
+					redball.top=redball.top+50;
+					redball.left=redball.left-50;
+					redball.left=redball.left+100;
+					redball.left=redball.left+100;
+					redball.left=redball.left+100;
+					redball.left=redball.left+100;
+					redball.top=redball.top-50;
+					redball.left=redball.left-50;
+					redball.top=redball.top-50;
+					redball.left=redball.left-50;
+					redball.top=redball.top-50;
+					redball.left=redball.left-50;
+					redball.top=redball.top-50;
+					redball.left=redball.left-50;
+				}
+				
+				function hexagon()
+				{
+				for (i = 0; i < 4; i++) {
+				movediagupleft(); }
+				for (i = 0; i < 4; i++) {
+				moveleft(); }
+				for (i = 0; i < 4; i++) {
+				movediagdownleft(); }
+				for (i = 0; i < 4; i++) {
+				movediagdownright(); }
+				for (i = 0; i < 4; i++) {
+				moveright(); }
+				for (i = 0; i < 4; i++) {
+				movediagupright(); }}
+				
+				function rage()
+				{ for (i = 0; i < 31; i++) {
+				moveright(); }
+				for (i = 0; i < 21; i++) {
+				movediagdownleft(); }
+				}
+				
+				function drunk()
+				{ for (i = 0; i < 6; i++) {
+				movediagdownleft(); }
+				for (i = 0; i < 6; i++) {
+				movediagdownright(); }
+				for (i = 0; i < 6; i++) {
+				moveleft(); }
+				for (i = 0; i < 6; i++) {
+				moveright(); }
+				for (i = 0; i < 6; i++) {
+				moveleft(); }}
+				
+				
+				function octagon()
+				{
+				for (i = 0; i < 4; i++) {
+				movediagupleft(); }
+				for (i = 0; i < 4; i++) {
+				moveleft(); }
+				for (i = 0; i < 4; i++) {
+				movediagdownleft(); }
+				for (i = 0; i < 4; i++) {
+				movedown(); }
+				for (i = 0; i < 4; i++) {
+				movediagdownright(); }
+				for (i = 0; i < 4; i++) {
+				moveright(); }
+				for (i = 0; i < 4; i++) {
+				movediagupright(); }
+				for (i = 0; i < 4; i++) {
+				moveup(); }
+				
+				}
+				
+				
+				
+				</script>
+				<script src="http://lrn.icstars.org/redball.js"></script>
+		</head>
+			<body>
+				Hello World!
+				<table border="2px;" align= "center">
+				<tr>
+				<td><button onclick="movediagupleft();">Move NE</button></td>
+				<td><button onclick="moveup();">Move Up</button></td>
+				<td><button onclick="movediagupright();">Move NW</button></td>
+				<td><button onclick="square();">Square</button></td>
+				
+				</tr>
+				<tr>
+				<td><button onclick="moveleft();">Move Left</button></td>
+				<td><button onclick="sayhello();">ButtOn</button></td>
+				<td><button onclick="moveright();">Move Right</button></td>
+				<td><button onclick="triangle();">Triangle</button></td>
+			
+				</tr>
+						<img id="redball" src="redball.jpg"/>
+				<tr>
+				<td><button onclick="movediagdownleft();">Move SE</button></td>	
+				<td><button onclick="movedown();">Move Down</button></td>
+				<td><button onclick="movediagdownright();">Move SW</button></td>
+				<td><button onclick= "bounce();">Bounce</button></td>
+				</tr>
+				<tr>
+				<td><button onclick="hexagon();">Hexagon</button></td>
+				<td><button onclick="rage();">Rage</button></td>
+				<td><button onclick="drunk();">Get Drunk</button></td>
+				<td><button onclick="octagon();">Octagon</button></td>
+				</tr>
+				</table>
+				
+			</body>
+
+	</html>

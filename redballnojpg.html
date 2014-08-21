@@ -1,0 +1,179 @@
+<!DoctypeHTML>
+<HTML>
+<head>
+	<div class="redball" draggable="true">
+		<div id="#redball" class="draggable">
+	<style type="text/css">
+	.redball {
+		position: absolute;
+		left: 50px;
+		top: 50px;
+		height: 200px;
+		width: 200px;
+		border-radius: 150px;
+		background-color: blue;
+		border-color: #00FF7F;
+		border-width: 3px;
+		border-style: solid;
+		box-shadow: 0 0 150px lime;
+		cursor: move;
+	}
+	
+	}
+	#button {
+		top:25px;
+		left:600px;
+	}};
+  
+ 
+
+	</style></div></div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jquery_1.6.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.14.js"></script>
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.core.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.draggable.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.resizable.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/resources/demos/style.css">
+
+	
+<script>
+$(document).ready(function() {
+console.log("ready!");
+$(".redball").fadeOut();
+$(".redball").fadeIn();
+$(".redball").animate({"left":"+=350px"},"slow");
+$(".redball").animate({"left":"-=350px"},"fast");
+$(".redball").animate({"top":"+=350px"},"slow");
+$(".redball").animate({"top":"-=350px"},"fast");
+$(".redball").draggable();  
+    $("#OpenDialog").click(function () {
+                $("#dialog").dialog({modal: true, height: 100, width: 100 });
+  });
+});
+
+ </script>
+
+ 
+
+
+</head>
+<title></title>
+<body background="space1.jpg">
+
+
+
+
+<div id="wrapper">
+  <div id="options">
+    <div id="drag1" class="drag">
+    </div>
+    <!-- end of drag1 -->
+</div>
+</div>
+</div>
+
+<table border="4px;" align= "right">
+				<tr>
+				<td><button id="diagupright">&#8599;</button></td>
+				<td><button id="up">&#8593;</button></td>
+				<td><button id="diagupleft">&#8598;</button></td>
+				<td><button id="x">x</button></td>
+				<td><button id="square">Square</button></td>
+				
+				</tr>
+				<tr>
+				<td><button id="left">&#8592;</button></td>
+				<td><button id="OpenDialog" href="#">Hi</button></td>
+				<td><button id="right">&#8594;</button></td>
+				<td><button id="octagon">Octagon</button></td>
+				<td><button id="triangle">Triangle</button></td>
+				
+				</tr>
+
+				<tr>
+				<td><button id="diagdownright">&#8600;</button></td>
+				<td><button id="down">&#8595;</button></td>
+				<td><button id="diagdownleft">&#8601;</button></td>
+				<td><button id="bounce">Bounce</button></td>
+				<td><button id="turnup">Turn Up</button></td>
+				</tr>
+				
+				
+				</table>
+				
+			<script>
+			$("#left").click(function(){
+				$(".redball").animate({"left":"-=28px"},"fast");
+			});
+			$("#right").click(function(){
+				$(".redball").animate({"left":"+=28px"},"fast");
+			});
+			$("#up").click(function(){
+				$(".redball").animate({"top":"-=28px"},"fast");
+			});
+			$("#down").click(function(){
+				$(".redball").animate({"top":"+=28px"},"fast");
+			});
+			$("#diagdownleft").click(function(){
+				$(".redball").animate({"top":"+=28px","left":"-=28px"},"fast");
+			});
+			$("#diagupleft").click(function(){
+				$(".redball").animate({"top":"-=28px","left":"-=28px"},"fast");
+			});
+			$("#diagdownright").click(function(){
+				$(".redball").animate({"top":"+=28px","left":"+=28px"},"fast");
+			});
+			$("#diagupright").click(function(){
+				$(".redball").animate({"top":"-=28px","left":"+=28px"},"fast");
+			});
+			$("#square").click(function(){
+				$(".redball").animate({"left":"-=80px"},"fast");
+				$(".redball").animate({"top":"+=80px"},"fast");
+				$(".redball").animate({"left":"+=80px"},"fast");
+				$(".redball").animate({"top":"-=80px"},"fast");
+			});
+			
+			$("#triangle").click(function() {
+				$(".redball").animate({"top":"+=80px","left":"+=80px"},"fast");
+				$(".redball").animate({"left":"-=160px"},"fast");
+				$(".redball").animate({"top":"-=80px","left":"+=80px"},"fast");
+			});
+			
+			$("#octagon").click(function(){
+				$(".redball").animate({"left":"+=120px"},"fast");
+				$(".redball").animate({"top":"+=80px","left":"+=80px"},"fast");
+				$(".redball").animate({"top":"+=160px"},"fast");
+				$(".redball").animate({"top":"+=80px","left":"-=80px"},"fast");
+				$(".redball").animate({"left":"-=120px"},"fast");
+				$(".redball").animate({"top":"-=80px","left":"-=80px"},"fast");
+				$(".redball").animate({"top":"-=160px"},"fast");
+				$(".redball").animate({"top":"-=80px","left":"+=80px"},"fast");
+			});	
+			$("#bounce").click(function(){	
+				$(".redball").animate({"top":"+=490px","left":"+=300px"},"fast");
+				$(".redball").animate({"top":"-=345px","left":"+=450px"},"fast");
+				$(".redball").animate({"left":"-=1000px"},"fast");
+				$(".redball").animate({"top":"-=137px","left":"+=250px"},"fast");
+			});	
+			$("#turnup").click(function(){
+				$(".redball").animate({"left":"+=500px"},"fast");
+				$(".redball").animate({"top":"+=200px","left":"-=200px"},"fast");
+				$(".redball").animate({"top":"-=150px","left":"-=150px"},"fast");
+				$(".redball").animate({"top":"+=300px","left":"+=300px"},"fast");
+				$(".redball").animate({"top":"+=250px"},"fast");
+				$(".redball").animate({"top":"-=400px","left":"-=400px"},"fast");
+				$(".redball").animate({"top":"-=100px","left":"-=100px"},"fast");
+			});
+				
+			</script>
+
+<div id="dialog">
+        <p>Meow!</p>
+    </div>
+
+</body>
+</html>

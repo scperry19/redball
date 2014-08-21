@@ -1,0 +1,546 @@
+<!DoctypeHTML>
+<HTML>
+<head>
+
+
+<script>
+//declare global variables
+//codedbySethPerry
+var thegame;
+thegame = new mygame;
+
+//create your object 
+function mygame(){
+  this.balls = [];
+//an object method to say something
+  this.sayhello = function (){
+    console.log ('hello world');
+  };
+  this.addball = function (jsonBall){ 
+    var newball = new ball();
+    jQuery.extend(newball, jsonBall);
+    this.balls.push(newball);
+    newball.show();
+  };
+  
+}
+
+function ball(){
+  var cssid;
+  var imgsrc;
+  var initialleft;
+  var initialtop;
+  this.debug = function (){
+     console.log ('my id is: ' + this.cssid);
+     console.log ('my image source is: ' + this.cssid);
+  };
+  this.show = function () {
+    var game = $("#game");
+    game.append("<img id='"+this.cssid+"' src='"+this.imgsrc+"'/>");
+    this.element = $("#" + this.cssid);
+    this.element.css({ position:'absolute',left:this.initialleft,top:this.initialtop });
+    
+  };
+  this.move=function(dx,dy){
+    this.element.animate({ "left": "+=" +dx+ "px", "top": "+=" +dy+ "px" }, "slow" );
+  };
+
+}
+
+$(document).ready (function(){
+  var server = new ajaxServiceLayer();
+  var ballsFromJSON = server.getballs();
+  for (i=0;i<ballsFromJSON.length;i++){
+    thegame.addball(ballsFromJSON[i]);
+  }
+  
+});
+
+function ajaxServiceLayer(){
+  this.getball = function(){
+    //name the return value
+    var retval;
+    /*
+    $.get("getball.aspx")
+      .done(function(data){
+        retval = JSON.parse(data);
+      });
+    */
+    //fake the server for now
+    //http://www.w3schools.com/json/json_syntax.asp
+    retval = JSON.parse('{"cssid":".redball"}');
+    
+    return retval;
+  };
+
+  this.getballs = function(){
+    //name the return value
+    var retval;
+    /*
+    $.get("getballs.aspx")
+      .done(function(data){
+        retval = JSON.parse(data);
+      });
+    */
+    //fake the server for now
+    //http://www.w3schools.com/json/json_syntax.asp
+    retval = JSON.parse('[{"cssid":".redball"},{"cssid":".yellowball"},{"cssid":".blueball"},{"cssid":".pball"}]');
+    
+    return retval;
+  };
+  
+}
+</script>
+
+
+
+  <div class="redball" draggable="true">
+    <div id="#redball" class="draggable">
+  <style type="text/css">
+  .redball {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    height: 100px;
+    width: 100px;
+    border-radius: 150px;
+    background-color: red;
+    border-color: orange;
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 0 0 150px orange;
+    cursor: move;
+  }
+  
+  }
+  #button {
+    top:25px;
+    left:600px;
+  }};
+  
+
+  </style></div></div>
+
+
+
+
+<div class="yellowball" draggable="true">
+    <div id="#yellowball" class="draggable">
+  <style type="text/css">
+
+  .yellowball {
+    position: absolute;
+    left: 250px;
+    top: 150px;
+    height: 200px;
+    width: 200px;
+    border-radius: 150px;
+    background-color: yellow;
+    border-color: orange;
+    border-width: 5px;
+    border-style: solid;
+    box-shadow: 0 0 150px yellow;
+    cursor: move;
+  }
+  
+  }
+  #button {
+    top:25px;
+    left:600px;
+  }};
+  
+
+  </style></div></div>
+
+
+
+
+<div class="blueball" draggable="true">
+    <div id="#blueball" class="draggable">
+  <style type="text/css">
+
+  .blueball {
+    position: absolute;
+    left: 700px;
+    top: 225px;
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    background-color: blue;
+    border-color: teal;
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 0 0 150px lime;
+    cursor: move;
+  }
+  
+  }
+  #button {
+    top:25px;
+    left:600px;
+  }};
+  
+
+  </style></div></div>
+
+
+
+
+<div class="pball" draggable="true">
+    <div id="#pball" class="draggable">
+  <style type="text/css">
+
+  .pball {
+    position: absolute;
+    left: 1000px;
+    top: 125px;
+    height: 90px;
+    width: 90px;
+    border-radius: 150px;
+    background-color: purple;
+    border-color: teal;
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: 0 0 150px blue;
+    cursor: move;
+  }
+  
+  }
+  #button {
+    top:25px;
+    left:600px;
+  }};
+  
+
+  </style></div></div>
+
+
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jquery_1.6.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.14.js"></script>
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.core.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.draggable.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.resizable.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/resources/demos/style.css">
+
+  
+<script>
+$(document).ready(function() {
+console.log("ready!");
+$(".redball").draggable();
+$(".yellowball").draggable(); 
+$(".blueball").draggable(); 
+$(".pball").draggable(); 
+    $("#OpenDialog").click(function () {
+                $("#dialog").dialog({modal: true, height: 100, width: 100 });
+  });
+});
+
+ </script>
+
+ 
+
+
+</head>
+<title></title>
+<body background="space1.jpg">
+
+
+
+
+<div id="wrapper">
+  <div id="options">
+    <div id="drag1" class="drag">
+    </div>
+    <!-- end of drag1 -->
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="boxes">
+<table style="border: 4px solid black" cellpadding="5" cellspacing="0" align= "right">
+<tr><td>
+<table style="border: 4px solid red" align= "right">
+        <tr>
+        <td><button id="diagupright0"onclick="thegame.balls[0].move(-10,-10);">&#8598;</button></td>
+        <td><button id="up0" onclick="thegame.balls[0].move(0,-10);">&#8593;</button></td>
+        <td><button id="diagupleft0" onclick="thegame.balls[0].move(+10,-10);">&#8599;</button></td>
+        </tr>
+        <tr>
+        <td><button id="left0" onclick="thegame.balls[0].move(-10,0);">&#8592;</button></td>
+        <td><button id="octagon0" onclick="thegame.balls[0].move(-10,-10);thegame.balls[0].move(0,-10);thegame.balls[0].move(+10,-10);thegame.balls[0].move(+10,0);thegame.balls[0].move(+10,+10);thegame.balls[0].move(0,+10);thegame.balls[0].move(-10,+10);thegame.balls[0].move(-10,0);">o</button></td>
+        <td><button id="right0" onclick="thegame.balls[0].move(+10,0);">&#8594;</button></td>
+        </tr>
+        <tr>
+        <td><button id="diagdownright0" onclick="thegame.balls[0].move(+10,+10);">&#8600;</button></td>
+        <td><button id="down0" onclick="thegame.balls[0].move(0,+10);">&#8595;</button></td>
+        <td><button id="diagdownleft0" onclick="thegame.balls[0].move(-10,+10);">&#8601;</button></td>
+        
+        </tr>
+        </table>
+    </tr></td>
+
+
+<tr><td>
+<table style="border: 4px solid yellow" align= "right">
+        <tr>
+        <td><button id="diagupright1"onclick="thegame.balls[1].move(-10,-10);">&#8598;</button></td>
+        <td><button id="up1" onclick="thegame.balls[1].move(0,-10);">&#8593;</button></td>
+        <td><button id="diagupleft1" onclick="thegame.balls[1].move(+10,-10);">&#8599;</button></td>
+        </tr>
+        <tr>
+        <td><button id="left1" onclick="thegame.balls[1].move(-10,0);">&#8592;</button></td>
+        <td><button id="triangle1" onclick="thegame.balls[1].move(+10,0);thegame.balls[1].move(-10,-10);thegame.balls[1].move(-10,+10);">&Delta;</button></td>
+        <td><button id="right1" onclick="thegame.balls[1].move(+10,0);">&#8594;</button></td>
+        </tr>
+        <tr>
+        <td><button id="diagdownright1" onclick="thegame.balls[1].move(+10,+10);">&#8600;</button></td>
+        <td><button id="down1" onclick="thegame.balls[1].move(0,+10);">&#8595;</button></td>
+        <td><button id="diagdownleft1" onclick="thegame.balls[1].move(-10,+10);">&#8601;</button></td>
+        
+        </tr>
+        </table>
+
+</tr></td>
+
+
+<tr><td>
+<table style="border: 4px solid blue" align= "right">
+        <tr>
+        <td><button id="diagupright2"onclick="thegame.balls[2].move(-10,-10);">&#8598;</button></td>
+        <td><button id="up2" onclick="thegame.balls[2].move(0,-10);">&#8593;</button></td>
+        <td><button id="diagupleft2" onclick="thegame.balls[2].move(+10,-10);">&#8599;</button></td>
+        </tr>
+        <tr>
+        <td><button id="left2" onclick="thegame.balls[2].move(-10,0);">&#8592;</button></td>
+        <td><button id="square2" onclick="thegame.balls[2].move(0,-10);thegame.balls[2].move(+10,0);thegame.balls[2].move(0,+10);thegame.balls[2].move(-10,0);">&#9632;</button></td>
+        <td><button id="right2" onclick="thegame.balls[2].move(+10,0);">&#8594;</button></td>
+        </tr>
+        <tr>
+        <td><button id="diagdownright2" onclick="thegame.balls[2].move(+10,+10);">&#8600;</button></td>
+        <td><button id="down2" onclick="thegame.balls[2].move(0,+10);">&#8595;</button></td>
+        <td><button id="diagdownleft2" onclick="thegame.balls[2].move(-10,+10);">&#8601;</button></td>
+        
+        </tr>
+        </table>
+</tr></td>
+
+
+  
+<tr><td>
+<table style="border: 4px solid purple" align= "right">
+        
+        <td><button id="diagupright3"onclick="thegame.balls[3].move(-10,-10);">&#8598;</button></td>
+        <td><button id="up3" onclick="thegame.balls[3].move(0,-10);">&#8593;</button></td>
+        <td><button id="diagupleft3" onclick="thegame.balls[3].move(+10,-10);">&#8599;</button></td>
+        </tr>
+        <tr>
+        <td><button id="left3" onclick="thegame.balls[3].move(-10,0);">&#8592;</button></td>
+        <td><button id="shake3" onclick="thegame.balls[3].move(-10,0);thegame.balls[3].move(+10,0);thegame.balls[3].move(+10,0);thegame.balls[3].move(-10,0);">&#8596;</button></td>
+        <td><button id="right3" onclick="thegame.balls[3].move(+10,0);">&#8594;</button></td>
+        </tr>
+        <tr>
+        <td><button id="diagdownright3" onclick="thegame.balls[3].move(+10,+10);">&#8600;</button></td>
+        <td><button id="down3" onclick="thegame.balls[3].move(0,+10);">&#8595;</button></td>
+        <td><button id="diagdownleft3" onclick="thegame.balls[3].move(-10,+10);">&#8601;</button></td>
+        
+        </tr>
+        </table>
+    </tr></td>
+
+</div>
+
+
+
+
+<script>
+      $("#left0").click(function(){
+        $(".redball").animate({"left":"-=28px"},"fast");
+      });
+      $("#right0").click(function(){
+        $(".redball").animate({"left":"+=28px"},"fast");
+      });
+      $("#up0").click(function(){
+        $(".redball").animate({"top":"-=28px"},"fast");
+      });
+      $("#down0").click(function(){
+        $(".redball").animate({"top":"+=28px"},"fast");
+      });
+      $("#diagdownleft0").click(function(){
+        $(".redball").animate({"top0":"+=28px","left":"-=28px"},"fast");
+      });
+      $("#diagupleft0").click(function(){
+        $(".redball").animate({"top":"-=28px","left":"-=28px"},"fast");
+      });
+      $("#diagdownright0").click(function(){
+        $(".redball").animate({"top":"+=28px","left":"+=28px"},"fast");
+      });
+      $("#diagupright0").click(function(){
+        $(".redball").animate({"top":"-=28px","left":"+=28px"},"fast");
+      });
+
+
+      $("#left1").click(function(){
+        $(".yellowball").animate({"left":"-=28px"},"fast");
+      });
+      $("#right1").click(function(){
+        $(".yellowball").animate({"left":"+=28px"},"fast");
+      });
+      $("#up1").click(function(){
+        $(".yellowball").animate({"top":"-=28px"},"fast");
+      });
+      $("#down1").click(function(){
+        $(".yellowball").animate({"top":"+=28px"},"fast");
+      });
+      $("#diagdownleft1").click(function(){
+        $(".yellowball").animate({"top":"+=28px","left":"-=28px"},"fast");
+      });
+      $("#diagupleft1").click(function(){
+        $(".yellowball").animate({"top":"-=28px","left":"-=28px"},"fast");
+      });
+      $("#diagdownright1").click(function(){
+        $(".yellowball").animate({"top":"+=28px","left":"+=28px"},"fast");
+      });
+      $("#diagupright1").click(function(){
+        $(".yellowball").animate({"top":"-=28px","left":"+=28px"},"fast");
+
+});
+
+
+
+
+      $("#left2").click(function(){
+        $(".blueball").animate({"left":"-=28px"},"fast");
+      });
+      $("#right2").click(function(){
+        $(".blueball").animate({"left":"+=28px"},"fast");
+      });
+      $("#up2").click(function(){
+        $(".blueball").animate({"top":"-=28px"},"fast");
+      });
+      $("#down2").click(function(){
+        $(".blueball").animate({"top":"+=28px"},"fast");
+      });
+      $("#diagdownleft2").click(function(){
+        $(".blueball").animate({"top":"+=28px","left":"-=28px"},"fast");
+      });
+      $("#diagupleft2").click(function(){
+        $(".blueball").animate({"top":"-=28px","left":"-=28px"},"fast");
+      });
+      $("#diagdownright2").click(function(){
+        $(".blueball").animate({"top":"+=28px","left":"+=28px"},"fast");
+      });
+      $("#diagupright2").click(function(){
+        $(".blueball").animate({"top":"-=28px","left":"+=28px"},"fast");
+
+});
+
+
+
+
+
+      $("#left3").click(function(){
+        $(".pball").animate({"left":"-=28px"},"fast");
+      });
+      $("#right3").click(function(){
+        $(".pball").animate({"left":"+=28px"},"fast");
+      });
+      $("#up3").click(function(){
+        $(".pball").animate({"top":"-=28px"},"fast");
+      });
+      $("#down3").click(function(){
+        $(".pball").animate({"top":"+=28px"},"fast");
+      });
+      $("#diagdownleft3").click(function(){
+        $(".pball").animate({"top":"+=28px","left":"-=28px"},"fast");
+      });
+      $("#diagupleft3").click(function(){
+        $(".pball").animate({"top":"-=28px","left":"-=28px"},"fast");
+      });
+      $("#diagdownright3").click(function(){
+        $(".pball").animate({"top":"+=28px","left":"+=28px"},"fast");
+      });
+      $("#diagupright3").click(function(){
+        $(".pball").animate({"top":"-=28px","left":"+=28px"},"fast");
+
+});
+
+
+
+
+
+
+      $("#square2").click(function(){
+        $(".blueball").animate({"left":"-=80px"},"fast");
+        $(".blueball").animate({"top":"+=80px"},"fast");
+        $(".blueball").animate({"left":"+=80px"},"fast");
+        $(".blueball").animate({"top":"-=80px"},"fast");
+      });
+      
+      $("#triangle1").click(function() {
+        $(".yellowball").animate({"top":"+=80px","left":"+=80px"},"fast");
+        $(".yellowball").animate({"left":"-=160px"},"fast");
+        $(".yellowball").animate({"top":"-=80px","left":"+=80px"},"fast");
+      });
+      
+      $("#octagon0").click(function(){
+        $(".redball").animate({"left":"+=120px"},"fast");
+        $(".redball").animate({"top":"+=80px","left":"+=80px"},"fast");
+        $(".redball").animate({"top":"+=160px"},"fast");
+        $(".redball").animate({"top":"+=80px","left":"-=80px"},"fast");
+        $(".redball").animate({"left":"-=120px"},"fast");
+        $(".redball").animate({"top":"-=80px","left":"-=80px"},"fast");
+        $(".redball").animate({"top":"-=160px"},"fast");
+        $(".redball").animate({"top":"-=80px","left":"+=80px"},"fast");
+      }); 
+     
+
+     $("#shake3").click(function(){
+        $(".pball").animate({"left":"+=120px"},"fast");
+        $(".pball").animate({"left":"-=120px"},"fast");
+        $(".pball").animate({"left":"+=120px"},"fast");
+         $(".pball").animate({"left":"-=120px"},"fast");
+
+      });
+     
+        
+      </script>
+
+
+
+
+
+
+<button id="PageRefresh">Refresh</button>
+ 
+<script type="text/javascript">
+ 
+  $('#PageRefresh').click(function() {
+ 
+            location.reload();
+ 
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

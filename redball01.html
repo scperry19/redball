@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Redball Zero One</title>
+			
+			<img id="redball" src="redball.jpg"/>
+			
+				<script>
+				function sayhello()
+				{
+					alert("Meow");
+				}
+				function moveleft()
+				{
+					redball.left=redball.left-30;
+				}
+				function moveright()
+				{
+					redball.left=redball.left+30;
+				}
+				function moveup()
+				{
+					redball.top=redball.top-30;
+				}
+				function movedown()
+				{
+					redball.top=redball.top+30;
+				}
+				function movese()
+				{
+					redball.top=redball.top+30;
+						redball.left=redball.left+30;
+				}
+				function movesw()
+				{
+					redball.top=redball.top+30;
+						redball.left=redball.left-30;
+				}
+				function movenw()
+				{
+					redball.top=redball.top-30;
+						redball.left=redball.left-30;
+				}
+				function movene()
+				{
+					redball.top=redball.top-30;
+						redball.left=redball.left+30;
+				}
+				{
+				function movesquare()	
+				}
+				    redball.top=30;
+				    	redball.left=redball.left-30
+				{
+				</script>
+				<script src="http://lrn.icstars.org/redball.js"></script>
+		</head>
+			<body>
+				Hello World!
+				<table border="2px;" align= "center">
+				<tr>
+				<td><button onclick="movene"();>Move Diagupleft</button></td>
+				<td><button onclick="moveleft();">Move Left</button></td>
+				<td><button onclick="movese();">Move DiagDownleft</button></td>
+				</tr>
+				<tr>
+				<td><button onclick="moveup();">Move Up</button></td>
+				<td><button onclick="sayhello();">ButtOn</button></td>
+				<td><button onclick="movedown();">Move Down</button></td>
+				</tr>
+						
+				<tr>
+				<td><button onclick="movenw();">Move Diagupright</button></td>
+				<td><button onclick="moveright();">Move Right</button></td>
+				<td><button onclick="movesw();">Move DiagDownright</button></td>
+				</tr>
+				<tr>
+				<td><button onclick="movesquare();">Move Square</button></td> 
+
+				</tr>
+				</table>
+		
+			</body>
+
+	</html>

@@ -1,0 +1,147 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jquery_1.6.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.14.js"></script>
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.core.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.draggable.js"></script> 
+<script type="text/javascript" language="javascript" src=" http://ui.jquery.com/repository/latest/ui/ui.resizable.js"></script>
+<style type="text/css">
+    #redball {
+        position:absolute;
+        left:190px;
+    }
+    #button {
+        top:25px;
+        left:600px;
+    }
+
+    </style>
+    
+<script>
+$(document).ready(function() {
+console.log("ready!");
+$("#redball").fadeOut();
+$("#redball").fadeIn();
+$("#redball").animate({"left":"+=350px"},"slow");
+$("#redball").animate({"left":"-=350px"},"fast");
+$("#redball").animate({"top":"+=350px"},"slow");
+$("#redball").animate({"top":"-=350px"},"fast");
+    $(document).ready(function(){
+    var isDragging, 
+        top = 0, left = 0,
+        curX, curY;
+
+    $("#redball").mousedown(function (e) {
+        e.preventDefault();
+    });
+
+    $("#container").mousedown(function (e) {
+        isDragging = true;
+
+        curX = e.pageX;
+        curY = e.pageY;
+
+        left = Number($("#redball").css("margin-left").
+                      toString().replace("px", ""));
+        top = Number($("#redball").css("margin-top").
+                     toString().replace("px", ""));
+    });
+
+    $(document).mouseup(function () {
+        if (isDragging){
+            // reset
+            isDragging = false;
+            top = 0;
+            left = 0;
+        }
+    });
+
+    $("#container").mousemove(function(e){
+        if (!isDragging) {
+            return;
+        }
+
+        left += e.pageX - curX;
+        top += e.pageY - curY;
+
+        // set the position
+        $("#redball").css("margin-left", left + "px").
+            css("margin-top", top + "px");
+
+        curX = e.pageX;
+        curY = e.pageY;  
+    });
+    $(function(){ $("#easydrag1").easydrag();});
+});
+
+ </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <style type="text/css">
+            body
+            {
+                font-family: Arial;
+                font-size: 10pt;
+            }
+            img
+            { height: 200px;
+                width: 300px;
+                
+            }
+            #dvDest
+            {
+                border: 0px solid #ccc;
+                padding: 2px;
+                height: 200px;
+                width: 300px;
+            }
+            #dvDest  img
+            {
+                height: 200px;
+                width: 300px;
+            }
+        </style>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+        <link rel="Stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+        <script type="text/javascript">
+            $(function () {
+                $("#dvSource img").draggable({
+                    drag: function (event, ui) {
+                        ui.helper.css("opacity", "0.7");
+                    }
+                });
+                $("#dvDest").droppable({
+                    drop: function (event, ui) {
+                        if ($("#dvDest img").length == 0) {
+                            $("#dvDest").html("");
+                        }
+                        ui.draggable.css("position", "static");
+                        ui.draggable.css("opacity", "1");
+                        
+                        $("#dvSource").append($("#dvDest").find('img'));
+                        $("#dvDest").html("");
+                        $("#dvDest").append(ui.draggable);                       
+                    }
+                });
+                 
+            });
+        </script>
+      
+ <img id="easydrag1" src="redball.jpg" style="border: 0px none; cursor: move;" />
+<script type="text/javascript">
+
+</script>
+
+          
+        <hr />
+       
+    </div>
+    </form>
+</body>
+</html>
